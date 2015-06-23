@@ -10,6 +10,17 @@
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *titleTextField;
+@property (strong, nonatomic) IBOutlet UITextField *categoryTextField;
+@property (strong, nonatomic) IBOutlet UITextField *articleIDTextField;
+@property (strong, nonatomic) IBOutlet UITextView *contentTextView;
+@property (strong, nonatomic) IBOutlet UITextField *pukeTextField;
+
+- (IBAction)postButton:(UIButton *)sender;
+- (IBAction)getButton:(UIButton *)sender;
+- (IBAction)putButton:(UIButton *)sender;
+- (IBAction)pukeButton:(UIButton *)sender;
+
 
 @end
 
