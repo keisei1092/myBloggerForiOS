@@ -25,18 +25,16 @@
     _pukeTextField.returnKeyType = UIReturnKeyDone;
     _pukeTextField.delegate = self;
     
-    UIView* accessoryView =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,40)];
-    accessoryView.backgroundColor = [UIColor clearColor];
-    
-    UIButton* closeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    closeButton.frame = CGRectMake(210,5,100,30);
-    [closeButton setTitle:@" Done" forState:UIControlStateNormal];
-    
-    [closeButton addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [accessoryView addSubview:closeButton];
-    
-    _contentTextView.inputAccessoryView = accessoryView;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        UIView* accessoryView =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,40)];
+        accessoryView.backgroundColor = [UIColor clearColor];
+        UIButton* closeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        closeButton.frame = CGRectMake(210,5,100,30);
+        [closeButton setTitle:@" Done" forState:UIControlStateNormal];
+        [closeButton addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventTouchUpInside];
+        [accessoryView addSubview:closeButton];
+        _contentTextView.inputAccessoryView = accessoryView;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
