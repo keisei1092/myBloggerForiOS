@@ -418,6 +418,7 @@
 				F30CCCCA1B392585009F0748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F30CCCCB1B392585009F0748 /* Build configuration list for PBXNativeTarget "myBloggerForiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +427,7 @@
 				F30CCCCD1B392585009F0748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

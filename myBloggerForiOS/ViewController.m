@@ -35,6 +35,9 @@
         [accessoryView addSubview:closeButton];
         _contentTextView.inputAccessoryView = accessoryView;
     }
+    
+    _contentTextView.textContainer.lineFragmentPadding = 0;
+    _contentTextView.textContainerInset = UIEdgeInsetsZero;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,7 +56,7 @@
     NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"\nSending data:\n%@", [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding]);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"http://inside.miraitoarumachi.com/articles.json"]];
+    [request setURL:[NSURL URLWithString:@"http://blog.miraitoarumachi.com/articles.json"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:postData];
@@ -68,7 +71,7 @@
 }
 
 - (IBAction)getButton:(UIButton *)sender {
-    NSString *url = [NSString stringWithFormat:@"http://inside.miraitoarumachi.com/articles/%@.json",
+    NSString *url = [NSString stringWithFormat:@"http://blog.miraitoarumachi.com/articles/%@.json",
                      _articleIDTextField.text];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -89,7 +92,7 @@
     NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"\nSending data:\n%@", [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding]);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://inside.miraitoarumachi.com/articles/%@.json", _articleIDTextField.text]]];
+    [request setURL:[NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://blog.miraitoarumachi.com/articles/%@.json", _articleIDTextField.text]]];
     [request setHTTPMethod:@"PUT"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:postData];
@@ -108,7 +111,7 @@
     NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"\nSending data:\n%@", [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding]);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"http://inside.miraitoarumachi.com/tweets.json"]];
+    [request setURL:[NSURL URLWithString:@"http://blog.miraitoarumachi.com/tweets.json"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:postData];
